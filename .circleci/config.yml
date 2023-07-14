@@ -13,10 +13,13 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
-      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "43:1a:4c:a2:05:aa:ca:52:1a:a7:63:1f:3e:33:f7:d4"
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: SSH into EC2 instance
+          command: |
+            ssh -o StrictHostKeyChecking=no centos@16.163.102.59 "sudo touch testfile"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
