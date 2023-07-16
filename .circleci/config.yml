@@ -17,9 +17,9 @@ jobs:
           fingerprints:
             - "43:1a:4c:a2:05:aa:ca:52:1a:a7:63:1f:3e:33:f7:d4"
       - run:
-          name: SSH into EC2 instance
+          name: SSH into EC2 instance & rebuild project
           command: |
-            ssh -o StrictHostKeyChecking=no centos@16.163.102.59 "sudo touch testfile"
+            ssh -o StrictHostKeyChecking=no centos@16.163.102.59 "cd /home/centos/ZicBlog && git pull && npm rum build && pm2 restart zic-blog"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
