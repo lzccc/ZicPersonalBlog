@@ -154,7 +154,7 @@ const BlogDisplayer = () => {
         <div className="d-flex">
           <div className="navbar-brand">
             <a className="logo-text" href="index.html">
-              Tony
+              ZIC
             </a>
           </div>
           <button className="toggler-menu" onClick={() => setToggle(!toggle)}>

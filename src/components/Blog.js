@@ -167,7 +167,7 @@ const Blog = () => {
             <div className="section-title">
               <h3 className="dark-color text-uppercase">Latest Blogs</h3>
               <p className="text-uppercase small">
-                A Lead UX &amp; UI designer based in Canada
+                A BACKEND DEVELOPER IN SHENZHEN
               </p>
             </div>
           </div>

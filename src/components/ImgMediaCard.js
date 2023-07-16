@@ -11,7 +11,6 @@ import strings from "@/src/utils/globalString";
 const SingleCard = ({ cardID, content, date, setCardsData, cardData }) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleDelete = () => {
-    setCardsData(cardData.filter((item) => item.commentId !== cardID));
     fetch(strings.serverURL + `/api/comment/${cardID}`, {
       method: "DELETE",
     })
@@ -19,6 +18,7 @@ const SingleCard = ({ cardID, content, date, setCardsData, cardData }) => {
         if (!response.ok) {
           return;
         }
+        setCardsData(cardData.filter((item) => item.commentId !== cardID));
       })
       .catch((error) => console.log("Error:", error));
   };

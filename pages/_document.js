@@ -8,14 +8,10 @@ export default function Document() {
         <meta charSet="utf-8" />
         <meta name="author" content="themepaa" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+
         <meta name="keywords" content="Zic Personal Space" />
         <meta name="description" content="Zic Personal Space" />
-        {/* title */}
-        <title>ZIC Personal Space</title>
+
         {/* Favicon */}
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         {/* plugin CSS */}

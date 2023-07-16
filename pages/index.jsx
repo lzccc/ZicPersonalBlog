@@ -28,8 +28,7 @@ async function fetchQuote() {
     const data = await response.text();
     return data;
   } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
+    console.error("Error fetching quote:", error);
   }
 }
 

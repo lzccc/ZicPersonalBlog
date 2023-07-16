@@ -19,20 +19,6 @@ const About = () => {
           <div className="col-lg-5 m-15px-tb">
             <div className="about-me-img box-shadow">
               <img src="static/img/ZichongPhoto.jpeg" alt="image" />
-              <div className="nav social-icon">
-                <a href="#">
-                  <i className="fab fa-facebook-f" />
-                </a>
-                <a href="#">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a href="#">
-                  <i className="fab fa-instagram" />
-                </a>
-                <a href="#">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
             </div>
           </div>
           <div className="col-lg-7 m-15px-tb">
@@ -71,24 +57,6 @@ const About = () => {
                   <div className="media">
                     <label>Address</label>
                     <p>Shenzhen, Guangdong</p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="media">
-                    <label>E-mail</label>
-                    <p>lizichong@hotmail.com</p>
-                  </div>
-                  <div className="media">
-                    <label>Phone</label>
-                    <p>186-8152-7081</p>
-                  </div>
-                  <div className="media">
-                    <label>WeChat</label>
-                    <p>lzc081</p>
-                  </div>
-                  <div className="media">
-                    <label>Freelance</label>
-                    <p>Available</p>
                   </div>
                 </div>
               </div>

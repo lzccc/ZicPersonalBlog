@@ -1,5 +1,5 @@
-import emailjs from "emailjs-com";
 import { useState } from "react";
+import strings from "@/src/utils/globalString";
 
 const Contact = () => {
   const [mailData, setMailData] = useState({
@@ -14,7 +14,7 @@ const Contact = () => {
   const onChange = (e) => {
     setMailData({ ...mailData, [e.target.name]: e.target.value });
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (
       name.length === 0 ||
@@ -24,30 +24,28 @@ const Contact = () => {
     ) {
       setError(true);
     } else {
-      emailjs
-        .send(
-          "service_seruhwu", // service id
-          "template_21aw58z", // template id
-          mailData,
-          "Q3pccdLZhU-mZT7tQ" // public api
-        )
-        .then(
-          (response) => {
-            setError(false);
-            setSuccess(true);
-            setTimeout(() => {
-              setSuccess(false);
-            }, 3000);
-            setMailData({ name: "", email: "", message: "", subject: "" });
+      console.log("Try sending email");
+      try {
+        const response = await fetch(strings.serverURL + `/api/email`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-          (err) => {
-            console.log(err.text);
-          }
-        );
+          body: JSON.stringify(mailData),
+        });
+
+        if (response.ok) {
+          console.log("Email sent successfully!");
+        } else {
+          alert("An error occurred while sending the email.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("An error occurred while sending the email.");
+      }
     }
   };
 
-  console.log(error);
   return (
     <section id="contactus" className="section gray-bg">
       <div className="container">

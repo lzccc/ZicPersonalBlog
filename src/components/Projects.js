@@ -17,7 +17,7 @@ const Projects = () => {
             <div className="section-title">
               <h3 className="dark-color text-uppercase">My Projects</h3>
               <p className="text-uppercase small">
-                A Lead UX &amp; UI designer based in Canada
+                A BACKEND DEVELOPER IN SHENZHEN
               </p>
             </div>
           </div>
@@ -108,77 +108,6 @@ const Projects = () => {
           </div>
           {/* / */}
           {/* feaure box */}
-          <div className="col-sm-6 col-lg-4 m-15px-tb project-box-1">
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image="/static/img/contemplative-reptile.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body2">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
-          </div>
-          {/* / */}
-          {/* feaure box */}
-          <div className="col-sm-6 col-lg-4 m-15px-tb project-box-1">
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image="/static/img/contemplative-reptile.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body2">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
-          </div>
-          {/* / */}
-          {/* feaure box */}
-          <div className="col-sm-6 col-lg-4 m-15px-tb project-box-1">
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image="/static/img/contemplative-reptile.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body2">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-            </Card>
-          </div>
-          {/* / */}
         </div>
       </div>
     </section>
