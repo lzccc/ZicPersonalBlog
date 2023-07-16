@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Accordion } from "react-bootstrap";
-import { tony } from "./utils";
+import { zic } from "./utils";
 
 const Header = ({ headerColor, isTransparent }) => {
   useEffect(() => {
-    tony.stickyNav();
-    tony.scrollToActiveNav();
+    zic.stickyNav();
+    zic.scrollToActiveNav();
   }, []);
 
   return (
@@ -19,7 +19,7 @@ const Header = ({ headerColor, isTransparent }) => {
           <div className="container">
             {/* Brand */}
             <a className="navbar-brand" href="index.html">
-              Tony <span className="theme-bg" />
+              ZIC <span className="theme-bg" />
             </a>
             {/* / */}
             {/* Mobile Toggle */}

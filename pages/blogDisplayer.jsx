@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
-import { tony } from "@/src/layouts/utils";
+import { zic } from "@/src/layouts/utils";
 import ReactMarkdown from "react-markdown";
 import Footer from "@/src/layouts/Footer";
 import MarkDownEditor from "@/src/components/MarkDownEditor";
@@ -143,7 +143,7 @@ const MarkdownViewer = () => {
 
 const BlogDisplayer = () => {
   useEffect(() => {
-    tony.scrollToActiveNav();
+    zic.scrollToActiveNav();
   }, []);
   const [toggle, setToggle] = useState(false);
 

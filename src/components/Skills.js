@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { tony } from "../layouts/utils";
+import { zic } from "../layouts/utils";
 
 const Skills = () => {
   useEffect(() => {
-    tony.activeSkillProgress();
+    zic.activeSkillProgress();
   }, []);
   return (
     <section className="section">

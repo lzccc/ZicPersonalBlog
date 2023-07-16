@@ -1,4 +1,4 @@
-export const tony = {
+export const zic = {
   stickyNav() {
     window.addEventListener("scroll", () => {
       let offset = window.scrollY;

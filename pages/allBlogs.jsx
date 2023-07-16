@@ -1,13 +1,13 @@
 import { Fragment, useEffect, useState } from "react";
 import Footer from "@/src/layouts/Footer";
-import { tony } from "@/src/layouts/utils";
+import { zic } from "@/src/layouts/utils";
 import { LastestBlog } from "@/src/components/Blog";
 import { CustomizedDialogs } from "@/src/components/Dialog";
 import Header from "@/src/components/Header";
 
 const AllBlogs = () => {
   useEffect(() => {
-    tony.scrollToActiveNav();
+    zic.scrollToActiveNav();
   }, []);
 
   return (

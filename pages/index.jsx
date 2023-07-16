@@ -3,7 +3,7 @@ import Blog from "@/src/components/Blog";
 import Contact from "@/src/components/Contact";
 import Skills from "@/src/components/Skills";
 import PersonalZone from "@/src/components/PersonalZone";
-import { tony } from "@/src/layouts/utils";
+import { zic } from "@/src/layouts/utils";
 import { Fragment, useEffect, useState } from "react";
 
 import Services from "@/src/components/Projects";
@@ -48,7 +48,7 @@ function DailyQuote() {
 
 const Index1 = () => {
   useEffect(() => {
-    tony.scrollToActiveNav();
+    zic.scrollToActiveNav();
   }, []);
   const [toggle, setToggle] = useState(false);
   return (
