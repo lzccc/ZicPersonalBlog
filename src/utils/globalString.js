@@ -1,5 +1,5 @@
 const strings = {
-  serverURL: "http://192.168.0.167",
+  serverURL: "http://16.163.102.59",
 };
 
 export default strings;

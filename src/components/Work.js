@@ -1,10 +1,9 @@
 import Isotope from "isotope-layout";
 import { useEffect, useRef, useState } from "react";
 
-const Work = () => {
+const Life = () => {
   // Isotope
   const isotope = useRef();
-  const [filterKey, setFilterKey] = useState("*");
   useEffect(() => {
     setTimeout(() => {
       isotope.current = new Isotope(".portfolio-content", {
@@ -42,13 +41,12 @@ const Work = () => {
           <div className="grid-item product branding">
             <div className="portfolio-box-01">
               <div className="portfolio-img">
-                <img src="static/img/portfolio-1.jpg" alt="image" />
+                <img src="static/img/me6.jpg" alt="image" />
               </div>
               <div className="portfolio-info">
                 <h5>All Photoes</h5>
-                <span>Design</span>
               </div>
-              <a className="link-overlay" href="#" />
+              <a className="link-overlay" href="#work" />
             </div>
           </div>{" "}
           {/* grid item */}
@@ -59,61 +57,32 @@ const Work = () => {
               </div>
               <div className="portfolio-info">
                 <h5>All Photoes</h5>
-                <span>Design</span>
               </div>
-              <a className="link-overlay" href="#" />
+              <a className="link-overlay" href="#work" />
             </div>
           </div>{" "}
           {/* grid item */}
           <div className="grid-item product branding">
             <div className="portfolio-box-01">
               <div className="portfolio-img">
-                <img src="static/img/portfolio-2.jpg" alt="image" />
+                <img src="static/img/me5.jpg" alt="image" />
               </div>
               <div className="portfolio-info">
                 <h5>All Photoes</h5>
-                <span>Design</span>
               </div>
-              <a className="link-overlay" href="#" />
+              <a className="link-overlay" href="#work" />
             </div>
           </div>{" "}
           {/* grid item */}
           <div className="grid-item product branding">
             <div className="portfolio-box-01">
               <div className="portfolio-img">
-                <img src="static/img/portfolio-3.jpg" alt="image" />
+                <img src="static/img/me2.jpg" alt="image" />
               </div>
               <div className="portfolio-info">
                 <h5>All Photoes</h5>
-                <span>Design</span>
               </div>
-              <a className="link-overlay" href="#" />
-            </div>
-          </div>{" "}
-          {/* grid item */}
-          <div className="grid-item product branding">
-            <div className="portfolio-box-01">
-              <div className="portfolio-img">
-                <img src="static/img/portfolio-4.jpg" alt="image" />
-              </div>
-              <div className="portfolio-info">
-                <h5>All Photoes</h5>
-                <span>Design</span>
-              </div>
-              <a className="link-overlay" href="#" />
-            </div>
-          </div>{" "}
-          {/* grid item */}
-          <div className="grid-item product branding">
-            <div className="portfolio-box-01">
-              <div className="portfolio-img">
-                <img src="static/img/portfolio-5.jpg" alt="image" />
-              </div>
-              <div className="portfolio-info">
-                <h5>All Photoes</h5>
-                <span>Design</span>
-              </div>
-              <a className="link-overlay" href="#" />
+              <a className="link-overlay" href="#work" />
             </div>
           </div>{" "}
           {/* grid item */}
@@ -123,4 +92,4 @@ const Work = () => {
     </section>
   );
 };
-export default Work;
+export default Life;
