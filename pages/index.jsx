@@ -12,10 +12,36 @@ import Footer from "@/src/layouts/Footer";
 import dynamic from "next/dynamic";
 import strings from "@/src/utils/globalString";
 import Header from "@/src/components/Header";
+import { LoginDialog } from "@/src/components/Dialog";
 
 const Work = dynamic(() => import("@/src/components/Work"), {
   ssr: false,
 });
+
+const LoginButton = () => {
+  let [open, setOpen] = useState(false);
+  const buttonStyle = {
+    position: "fixed",
+    top: "25px",
+    right: "25px",
+  };
+  const handleClick = () => {
+    console.log("handleclick");
+    setOpen(true);
+  };
+
+  return (
+    <div>
+      <LoginDialog login={open} setLogin={setOpen}></LoginDialog>
+      <div style={buttonStyle}>
+        {" "}
+        <a onClick={handleClick}>
+          <i className="far fa-user fa-lg" />
+        </a>
+      </div>
+    </div>
+  );
+};
 
 async function fetchQuote() {
   const serviceLink = strings.serverURL + "/api/idea";
@@ -54,7 +80,6 @@ const Index1 = () => {
   return (
     <Fragment>
       <Header />
-
       <main className="main-left">
         {/* Home Banner */}
         <section
@@ -62,6 +87,7 @@ const Index1 = () => {
           className="home-banner-01 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url(static/img/home-banner.jpg)" }}
         >
+          <LoginButton />
           <div className="container">
             <div className="row full-screen align-items-center p-100px-tb">
               <div className="col-md-6">

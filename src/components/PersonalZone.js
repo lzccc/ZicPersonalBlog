@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ImgMediaCard from "@/src/components/ImgMediaCard";
 import { Reorder, useMotionValue } from "framer-motion";
 import strings from "@/src/utils/globalString";
+import { AuthContext } from "@/src/components/AuthContext";
 
 const commentRecords =
   strings.serverURL + "/api/comments?listid=commentSet:user1";
@@ -43,6 +44,7 @@ const PersonalZone = () => {
   const id = "user1";
   let [content, setContentData] = useState("");
   let [cardsData, setCardsData] = useState([]);
+  const { username, password } = useContext(AuthContext);
   useEffect(() => {
     fetchData()
       .then((response) => {
@@ -74,6 +76,7 @@ const PersonalZone = () => {
       const response = await fetch(strings.serverURL + `/api/comment/${id}`, {
         method: "POST",
         headers: {
+          Authorization: "Basic " + btoa(username + ":" + password),
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ content }),
@@ -81,11 +84,11 @@ const PersonalZone = () => {
       setContentData("");
       if (response.ok) {
         console.log("Content saved successfully!");
+        const newData = await response.json();
+        setCardsData((cardsData) => [newData, ...cardsData]);
       } else {
         console.error("An error occurred while saving the content.");
       }
-      const newData = await response.json();
-      setCardsData((cardsData) => [newData, ...cardsData]);
     } catch (error) {
       console.error(error);
       alert("An error occurred while saving the content.");

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import strings from "@/src/utils/globalString";
+import { AuthContext } from "@/src/components/AuthContext";
 
 function FileUpload({ setMdContent }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -129,6 +130,7 @@ export const ConfirmDialog = ({
   setDataAfterDelete,
   currentData,
 }) => {
+  const { username, password } = useContext(AuthContext);
   const handleClose = () => {
     setOpen(false);
   };
@@ -137,6 +139,10 @@ export const ConfirmDialog = ({
     console.log("to delete: " + toDelete);
     fetch(strings.serverURL + `/api/mdfile/${toDelete}`, {
       method: "DELETE",
+      headers: {
+        Authorization: "Basic " + btoa(username + ":" + password),
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => {
         if (!response.ok) {
@@ -187,6 +193,7 @@ export const CustomizedDialogs = () => {
   const [tagValue, setTagValue] = useState("");
   const [aboutValue, setAboutValue] = useState("");
   const [mdContent, setMdContent] = useState("");
+  const { username, password } = useContext(AuthContext);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -238,6 +245,7 @@ export const CustomizedDialogs = () => {
           {
             method: "POST",
             headers: {
+              Authorization: "Basic " + btoa(username + ":" + password),
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
@@ -327,6 +335,101 @@ export const CustomizedDialogs = () => {
         <CustomDialogActions>
           <CustomButton autoFocus onClick={handleSubmit}>
             Start Writing!
+          </CustomButton>
+        </CustomDialogActions>
+      </BootstrapDialog>
+    </div>
+  );
+};
+
+export const LoginDialog = ({ login, setLogin }) => {
+  const { username, password, setUsername, setPassword } =
+    useContext(AuthContext);
+  const [userNameError, setUserNameError] = useState(false);
+  const [passWordError, setPassWordError] = useState(false);
+  const [userNameValue, setUserNameValue] = useState("");
+  const [passWordValue, setPassWordValue] = useState("");
+
+  const handleClose = () => {
+    setLogin(false);
+    setError(false);
+    setUserNameError(false);
+    setPassWordError(false);
+  };
+
+  const handleUserNameChange = (event) => {
+    if (event.target.value.length > 20) {
+      setUserNameError(true);
+      return;
+    }
+    setUserNameError(false);
+    setUserNameValue(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    if (event.target.value.length > 100) {
+      setPassWordError(true);
+      return;
+    }
+    setPassWordError(false);
+    setPassWordValue(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (userNameError || passWordError) {
+      console.error("Form input error");
+      return;
+    }
+    setUsername(userNameValue);
+    setPassword(passWordValue);
+    setLogin(false);
+  };
+
+  return (
+    <div>
+      <BootstrapDialog
+        fullWidth={true}
+        maxWidth={"sm"}
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={login}
+      >
+        <CustomDialogTitle id="customized-dialog-title" onClose={handleClose}>
+          Login
+        </CustomDialogTitle>
+
+        <CustomDialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="User Name"
+            type="text"
+            fullWidth
+            onChange={handleUserNameChange}
+            variant="standard"
+            error={userNameError}
+            helperText={userNameError ? "Length must less than 20" : ""}
+          />
+        </CustomDialogContent>
+        <CustomDialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Password"
+            type="text"
+            fullWidth
+            onChange={handlePasswordChange}
+            variant="standard"
+            error={passWordError}
+            helperText={passWordError ? "Length must less than 100" : ""}
+          />
+        </CustomDialogContent>
+        <CustomDialogActions>
+          <CustomButton autoFocus onClick={handleSubmit}>
+            Comfirm
           </CustomButton>
         </CustomDialogActions>
       </BootstrapDialog>

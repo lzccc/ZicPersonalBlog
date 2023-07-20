@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import strings from "@/src/utils/globalString";
+import { AuthContext } from "@/src/components/AuthContext";
 
 const Contact = () => {
   const [mailData, setMailData] = useState({
@@ -9,6 +10,7 @@ const Contact = () => {
     subject: "",
   });
   const { name, email, subject, message } = mailData;
+  const { username, password } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const onChange = (e) => {
@@ -29,6 +31,7 @@ const Contact = () => {
         const response = await fetch(strings.serverURL + `/api/email`, {
           method: "POST",
           headers: {
+            Authorization: "Basic " + btoa(username + ":" + password),
             "Content-Type": "application/json",
           },
           body: JSON.stringify(mailData),

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -7,12 +7,21 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import strings from "@/src/utils/globalString";
+import { AuthContext } from "@/src/components/AuthContext";
 
 const SingleCard = ({ cardID, content, date, setCardsData, cardData }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { username, password } = useContext(AuthContext);
+
   const handleDelete = () => {
+    console.log(username);
+    console.log(password);
     fetch(strings.serverURL + `/api/comment/${cardID}`, {
       method: "DELETE",
+      headers: {
+        Authorization: "Basic " + btoa(username + ":" + password),
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => {
         if (!response.ok) {

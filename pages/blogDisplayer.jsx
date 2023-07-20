@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useContext } from "react";
 import { zic } from "@/src/layouts/utils";
 import ReactMarkdown from "react-markdown";
 import Footer from "@/src/layouts/Footer";
@@ -7,6 +7,7 @@ import MarkDownEditor from "@/src/components/MarkDownEditor";
 import "github-markdown-css/github-markdown-light.css";
 import { motion } from "framer-motion";
 import strings from "@/src/utils/globalString";
+import { AuthContext } from "@/src/components/AuthContext";
 
 const buttonStyle = {
   backgroundColor: "#d9832e",
@@ -26,6 +27,7 @@ const MarkdownViewer = () => {
   const router = useRouter();
   const { id } = router.query; // Access the parameter value
   const [editorMode, setEditorMode] = useState(false);
+  const { username, password } = useContext(AuthContext);
   const handleEditClick = () => {
     if (editorMode) {
       handleSave(markdownSource);
@@ -48,6 +50,7 @@ const MarkdownViewer = () => {
       const response = await fetch(strings.serverURL + `/api/mdfile/${id}`, {
         method: "POST",
         headers: {
+          Authorization: "Basic " + btoa(username + ":" + password),
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ content }),
