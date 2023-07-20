@@ -1,5 +1,5 @@
 const strings = {
-  serverURL: "http://localhost:8080",
+  serverURL: "http://16.163.102.59",
 };
 
 export default strings;
