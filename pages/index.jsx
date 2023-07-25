@@ -14,6 +14,7 @@ import strings from "@/src/utils/globalString";
 import Header from "@/src/components/Header";
 import { LoginDialog } from "@/src/components/Dialog";
 import WebSocketComponent from "@/src/components/WebSocketComponent";
+import Live2DModel from "@/src/components/Live2DModel";
 
 const Work = dynamic(() => import("@/src/components/Work"), {
   ssr: false,
@@ -81,7 +82,9 @@ const Index1 = () => {
   return (
     <Fragment>
       <Header />
+
       <main className="main-left">
+        <Live2DModel></Live2DModel>
         {/* Home Banner */}
         <section
           id="home"
@@ -140,7 +143,7 @@ const Index1 = () => {
         {/* End Blog */}
         <Contact />
       </main>
-      <WebSocketComponent />
+
       <Footer />
     </Fragment>
   );

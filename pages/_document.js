@@ -12,6 +12,8 @@ export default function Document() {
         <meta name="keywords" content="Zic Personal Space" />
         <meta name="description" content="Zic Personal Space" />
 
+        <script src="static/live2dcubismcore.min.js"></script>
+
         {/* Favicon */}
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         {/* plugin CSS */}
