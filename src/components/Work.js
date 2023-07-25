@@ -1,5 +1,5 @@
 import Isotope from "isotope-layout";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const Life = () => {
   // Isotope

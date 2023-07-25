@@ -192,8 +192,8 @@ const BlogDisplayer = () => {
           </li>
           <li>
             <a className="nav-link" href="/#services">
-              <i className="fas fa-concierge-bell" />
-              <span>Services</span>
+              <i className="fas fa-wrench" />
+              <span>PROJECTS</span>
             </a>
           </li>
           <li>

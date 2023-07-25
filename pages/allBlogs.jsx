@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import Footer from "@/src/layouts/Footer";
 import { zic } from "@/src/layouts/utils";
 import { LastestBlog } from "@/src/components/Blog";

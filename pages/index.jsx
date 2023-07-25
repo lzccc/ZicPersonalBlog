@@ -6,13 +6,14 @@ import PersonalZone from "@/src/components/PersonalZone";
 import { zic } from "@/src/layouts/utils";
 import { Fragment, useEffect, useState } from "react";
 
-import Services from "@/src/components/Projects";
+import Projects from "@/src/components/Projects";
 import TypingAnimation from "@/src/components/TypingAnimation";
 import Footer from "@/src/layouts/Footer";
 import dynamic from "next/dynamic";
 import strings from "@/src/utils/globalString";
 import Header from "@/src/components/Header";
 import { LoginDialog } from "@/src/components/Dialog";
+import WebSocketComponent from "@/src/components/WebSocketComponent";
 
 const Work = dynamic(() => import("@/src/components/Work"), {
   ssr: false,
@@ -126,7 +127,7 @@ const Index1 = () => {
         <Skills />
         {/* End fun */}
         {/* resume */}
-        <Services />
+        <Projects />
         {/* End resume */}
         {/* Work */}
         <Work />
@@ -139,6 +140,7 @@ const Index1 = () => {
         {/* End Blog */}
         <Contact />
       </main>
+      <WebSocketComponent />
       <Footer />
     </Fragment>
   );

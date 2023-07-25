@@ -343,8 +343,7 @@ export const CustomizedDialogs = () => {
 };
 
 export const LoginDialog = ({ login, setLogin }) => {
-  const { username, password, setUsername, setPassword } =
-    useContext(AuthContext);
+  const { setUsername, setPassword } = useContext(AuthContext);
   const [userNameError, setUserNameError] = useState(false);
   const [passWordError, setPassWordError] = useState(false);
   const [userNameValue, setUserNameValue] = useState("");
@@ -352,7 +351,6 @@ export const LoginDialog = ({ login, setLogin }) => {
 
   const handleClose = () => {
     setLogin(false);
-    setError(false);
     setUserNameError(false);
     setPassWordError(false);
   };
