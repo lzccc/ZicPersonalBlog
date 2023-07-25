@@ -13,7 +13,6 @@ const WebSocketComponent = () => {
   useEffect(() => {
     if (!initialized.current) {
       initialized.current = true;
-      console.log("zictest");
       const socket = new SockJS(`${strings.serverURL}/api/websocket`);
       const stompClient = Stomp.over(socket);
 

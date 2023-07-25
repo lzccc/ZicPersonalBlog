@@ -19,7 +19,7 @@ jobs:
       - run:
           name: SSH into EC2 instance & rebuild project
           command: |
-            ssh -o StrictHostKeyChecking=no centos@16.163.102.59 "cd /home/centos/ZicBlog && git pull && npm run build && pm2 restart zic-blog"
+            ssh -o StrictHostKeyChecking=no centos@16.163.102.59 "cd /home/centos/ZicBlog && git pull && npm install --force && npm run build && pm2 restart zic-blog"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
