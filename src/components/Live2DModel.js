@@ -18,7 +18,7 @@ export default function Home() {
         bottom={"2px"}
         right={"-10px"}
         color="#fffdfc"
-        ModelList={["Hiyori"]}
+        ModelList={["Hiyori", "REM"]}
         TouchBody={["啊啊啊啊啊你要干嘛", "哼", "坏人"]}
         TouchDefault={["啊啊啊啊啊你要干嘛", "哼", "坏人"]}
         PathFull="/Resources/"
