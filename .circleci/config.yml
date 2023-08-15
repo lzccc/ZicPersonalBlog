@@ -15,11 +15,11 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "43:1a:4c:a2:05:aa:ca:52:1a:a7:63:1f:3e:33:f7:d4"
+            - "53:b9:2f:10:c4:fd:d9:c3:6a:d4:1f:f8:e1:82:51:9e"
       - run:
           name: SSH into EC2 instance & rebuild project
           command: |
-            ssh -o StrictHostKeyChecking=no centos@16.163.102.59 "cd /home/centos/ZicBlog && git pull && npm install --force && npm run build && pm2 restart zic-blog"
+            ssh -o StrictHostKeyChecking=no opc@192.9.251.238 "cd /home/opc/zicBlog && git pull && npm install --force && npm run build && pm2 restart zic-blog"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
