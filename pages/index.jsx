@@ -28,7 +28,12 @@ const LoginButton = () => {
     right: "25px",
   };
   const handleClick = () => {
-    console.log("handleclick");
+    console.log(process.env.NODE_ENV);
+    if (process.env.NODE_ENV === "development") {
+      // Development mode specific code
+    } else if (process.env.NODE_ENV === "production") {
+      // Production mode specific code
+    }
     setOpen(true);
   };
 
